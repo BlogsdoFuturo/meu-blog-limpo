@@ -14,24 +14,50 @@ import { SITE_TITLE } from '../consts';
 			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
 			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); }
 			p { line-height: 1.6; margin-bottom: 2em; }
+			
 			.contact-box {
-				background: #f4f4f5; /* Fundo cinza bem clarinho */
-				padding: 2em;
+				background: #f4f4f5;
+				padding: 2.5em 2em;
 				border-radius: 12px;
 				margin-top: 2em;
+				border-top: 4px solid #1d76a0; /* Detalhe em Azul */
 			}
 			.contact-box h3 {
 				margin-top: 0;
 				color: rgb(var(--black));
 			}
-			.contact-box a {
-				color: rgb(var(--accent));
-				font-size: 1.2em;
+			.email-link {
+				color: #1d76a0; /* Azul da sua marca */
+				font-size: 1.3em;
 				font-weight: bold;
 				text-decoration: none;
+				word-break: break-all;
 			}
-			.contact-box a:hover {
+			.email-link:hover {
 				text-decoration: underline;
+			}
+			
+			/* Estilos do Botão de Copiar */
+			.btn-copiar {
+				background-color: #289b5d; /* Verde da sua marca */
+				color: white;
+				border: none;
+				padding: 0.8em 1.5em;
+				font-size: 1em;
+				border-radius: 8px;
+				cursor: pointer;
+				font-weight: bold;
+				margin-top: 1.5em;
+				transition: background-color 0.3s ease;
+			}
+			.btn-copiar:hover {
+				background-color: #1d76a0; /* Fica Azul ao passar o mouse */
+			}
+			#mensagem-sucesso {
+				color: #289b5d;
+				font-weight: bold;
+				margin-top: 10px;
+				display: none; /* Fica escondido até a pessoa clicar */
 			}
 		</style>
 	</head>
@@ -45,11 +71,36 @@ import { SITE_TITLE } from '../consts';
 				<div class="contact-box">
 					<h3>Fale Conosco</h3>
 					<p>A maneira mais rápida de falar com a nossa equipe é enviando um e-mail para:</p>
-					<p><a href="mailto:blogsdofuturo@gmail.com">blogsdofuturo@gmail.com</a></p>
-					<p><small>Tentaremos responder o mais rápido possível!</small></p>
+					
+					<div>
+						<a href="mailto:blogsdofuturo@gmail.com" class="email-link">blogsdofuturo@gmail.com</a>
+					</div>
+					
+					<button id="btn-copiar" class="btn-copiar">📋 Copiar E-mail</button>
+					<p id="mensagem-sucesso">✅ E-mail copiado com sucesso!</p>
+					
+					<p><small style="display:block; margin-top:2em;">Dica: No celular, basta clicar no e-mail. No computador, use o botão de copiar!</small></p>
 				</div>
 			</div>
 		</main>
 		<Footer />
+
+		<!-- O script mágico que faz o botão copiar o texto -->
+		<script>
+			const btnCopiar = document.getElementById('btn-copiar');
+			const mensagemSucesso = document.getElementById('mensagem-sucesso');
+
+			if (btnCopiar && mensagemSucesso) {
+				btnCopiar.addEventListener('click', () => {
+					navigator.clipboard.writeText('blogsdofuturo@gmail.com').then(() => {
+						mensagemSucesso.style.display = 'block';
+						// Esconde a mensagem de sucesso depois de 3 segundos
+						setTimeout(() => {
+							mensagemSucesso.style.display = 'none';
+						}, 3000);
+					});
+				});
+			}
+		</script>
 	</body>
 </html>
