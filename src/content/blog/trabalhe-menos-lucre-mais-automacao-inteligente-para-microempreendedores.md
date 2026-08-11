@@ -2,7 +2,7 @@
 title: 'Trabalhe Menos, Lucre Mais: Automação Inteligente para Microempreendedores'
 description: 'Descubra como a automação inteligente pode revolucionar seu MEI. Ferramentas práticas de IA para trabalhar menos, aumentar lucros e ter mais tempo livre. Guia completo 2025.'
 pubDate: 'Oct 21 2025'
-heroImage: '/blog-placeholder-about.jpg'
+heroImage: '/capa-trabalhe-menos.jpg'
 ---
 
 *Por blogsdofuturo@gmail.com*
@@ -21,7 +21,7 @@ A boa notícia é que você não precisa ser expert em tecnologia nem investir f
 
 ## O Que é Automação Inteligente e Por Que Todo MEI Deveria Usar
 
-![Representação visual de automação inteligente](/imagem-engrenagens-ia.jpg)
+![Representação visual de automação inteligente](/automacao-conceito.jpg)
 *(Representação visual de automação inteligente: engrenagens conectadas a um ícone de IA, simbolizando o fluxo de trabalho eficiente de um MEI)*
 
 **Automação Inteligente Explicada de Forma Simples**
@@ -58,7 +58,7 @@ Segundo pesquisa do Sebrae, 7 em cada 10 pequenos negócios já usam ferramentas
 
 ### 2. Gestão Financeira: Adeus Planilhas Confusas
 
-![Painel de Controle Financeiro](/imagem-painel-financeiro.jpg)
+![Painel de Controle Financeiro](/painel-financeiro.jpg)
 *(Visão de um painel de controle financeiro automatizado, com gráfico de crescimento de lucros e finanças organizadas para MEIs)*
 
 **O problema:** Boletos perdidos, pagamentos atrasados, não saber quanto lucrou no mês.
@@ -107,7 +107,7 @@ Segundo pesquisa do Sebrae, 7 em cada 10 pequenos negócios já usam ferramentas
 
 ## Ferramentas de IA Gratuitas Que Todo MEI Precisa Conhecer
 
-![Ferramentas de IA](/imagem-ferramentas-ia.jpg)
+![Ferramentas de IA](/ferramentas-produtividade.jpg)
 *(Ferramentas de IA e produtividade)*
 
 **Para Criação de Conteúdo**
@@ -233,7 +233,7 @@ Pacote completo:
 - **Automação de Vídeos:** Criação automática de vídeos curtos usando IA — sem precisar aparecer na câmera.
 - **Análise Preditiva Acessível:** Software que prevê tendências de vendas e comportamento de clientes.
 - **Voice Commerce:** Vendas por comando de voz através de assistentes (Alexa, Google Assistant).
-- **Hiperautomação:** Combinação de múltiplas tecnologias trabalhando juntas.
+- **Hiperautomação:** Combinação de múltiplas technologies trabalhando juntas.
 
 ## FAQ: Dúvidas Mais Comuns Sobre Automação Para MEI
 
@@ -260,7 +260,7 @@ Sim! Desde prestadores de serviço até e-commerce. Algumas áreas têm mais op�
 
 ## Conclusão: Seu Primeiro Passo Para Trabalhar Menos e Lucrar Mais
 
-![Começar Agora](/imagem-comecar-agora.jpg)
+![Começar Agora](/comecar-automacao.jpg)
 *(Mão de um empreendedor acionando um botão de “Começar Agora” em um tablet, ilustrando o primeiro passo para a automação do negócio MEI)*
 
 Chegamos ao final deste guia, mas sua jornada de transformação está apenas começando.
