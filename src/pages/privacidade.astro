@@ -1,0 +1,51 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Política de Privacidade | ${SITE_TITLE}`} description="Política de Privacidade e Proteção de Dados." />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
+			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
+			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); }
+			h2 { margin-top: 1.5em; color: rgb(var(--black)); }
+			p, ul { line-height: 1.6; margin-bottom: 1em; }
+			ul { padding-left: 1.5em; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="prose">
+				<h1>Política de Privacidade</h1>
+				<p><em>Última atualização: 11 de Agosto de 2026</em></p>
+
+				<p>A sua privacidade é importante para nós. É nossa política respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site, bem como em outros sites que possuímos e operamos.</p>
+
+				<h2>1. Coleta de Dados</h2>
+				<p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento. Também informamos por que estamos coletando e como será usado.</p>
+
+				<h2>2. Uso das Informações</h2>
+				<p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modificação não autorizados.</p>
+
+				<h2>3. Compartilhamento de Dados</h2>
+				<p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+
+				<h2>4. Links Externos</h2>
+				<p>O nosso site pode ter links para sites externos que não são operados por nós. Esteja ciente de que não temos controle sobre o conteúdo e práticas desses sites e não podemos aceitar responsabilidade por suas respectivas políticas de privacidade.</p>
+
+				<h2>5. Seus Direitos (LGPD)</h2>
+				<p>Você é livre para recusar a nossa solicitação de informações pessoais, entendendo que talvez não possamos fornecer alguns dos serviços desejados. Caso deseje acessar, corrigir ou excluir seus dados, basta entrar em contato conosco.</p>
+
+				<h2>6. Contato</h2>
+				<p>Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco através do e-mail: <strong>blogsdofuturo@gmail.com</strong>.</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
