@@ -41,10 +41,10 @@ Segundo pesquisa do Sebrae, 7 em cada 10 pequenos negócios já usam ferramentas
 
 ## 5 Áreas do Seu Negócio Que Você Pode Automatizar Hoje Mesmo
 
-### 1. Atendimento ao Cliente: Pare de Responder as Mesmas Perguntas
-
 ![Chatbot WhatsApp](/chatbot-whatsapp.jpg)
 *(Chatbot com inteligência artificial respondendo a múltiplas mensagens no WhatsApp, ilustrando o atendimento 24/7 para microempreendedores)*
+
+### 1. Atendimento ao Cliente: Pare de Responder as Mesmas Perguntas
 
 **O problema:** Você perde horas respondendo perguntas repetitivas no WhatsApp, Instagram e e-mail.
 **A solução:** Chatbots inteligentes com IA podem atender seus clientes automaticamente.
