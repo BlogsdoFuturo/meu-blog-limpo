@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Contato | ${SITE_TITLE}`} description="Entre em contato conosco." />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; text-align: center; }
+			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
+			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); }
+			p { line-height: 1.6; margin-bottom: 2em; }
+			.contact-box {
+				background: #f4f4f5; /* Fundo cinza bem clarinho */
+				padding: 2em;
+				border-radius: 12px;
+				margin-top: 2em;
+			}
+			.contact-box h3 {
+				margin-top: 0;
+				color: rgb(var(--black));
+			}
+			.contact-box a {
+				color: rgb(var(--accent));
+				font-size: 1.2em;
+				font-weight: bold;
+				text-decoration: none;
+			}
+			.contact-box a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="prose">
+				<h1>Contato</h1>
+				<p>Tem alguma dúvida, sugestão ou proposta de parceria? Adoraríamos ouvir você!</p>
+
+				<div class="contact-box">
+					<h3>Fale Conosco</h3>
+					<p>A maneira mais rápida de falar com a nossa equipe é enviando um e-mail para:</p>
+					<p><a href="mailto:blogsdofuturo@gmail.com">blogsdofuturo@gmail.com</a></p>
+					<p><small>Tentaremos responder o mais rápido possível!</small></p>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
