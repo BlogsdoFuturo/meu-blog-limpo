@@ -36,6 +36,8 @@ Benefícios diretos da automação para MEIs:
 
 ## 5 Áreas do Seu Negócio Que Você Pode Automatizar Hoje Mesmo
 
+<br>
+
 ### 1. Atendimento ao Cliente: Pare de Responder as Mesmas Perguntas
 
 ![Chatbot com inteligência artificial respondendo a múltiplas mensagens no WhatsApp, ilustrando o atendimento 24/7 para microempreendedores.](/chatbot-whatsapp.jpg)
