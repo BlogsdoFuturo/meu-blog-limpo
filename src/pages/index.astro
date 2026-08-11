@@ -9,30 +9,80 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="pt-BR">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			body {
+				background-color: #fffcfd; /* Fundo oficial da sua marca */
+			}
+			.hero {
+				text-align: center;
+				padding: 2em 0;
+			}
+			.logo-img {
+				max-width: 320px;
+				height: auto;
+				margin: 0 auto 1.5em auto;
+				display: block;
+			}
+			.hero h1 {
+				color: #1d76a0; /* Azul do cérebro */
+				margin-bottom: 0.2em;
+			}
+			.hero h2 {
+				color: #289b5d; /* Verde do gráfico */
+				font-size: 1.4em;
+				font-weight: 400;
+				margin-bottom: 1.5em;
+			}
+			.content-box {
+				background: #ffffff;
+				padding: 2.5em;
+				border-radius: 12px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+				border-top: 4px solid #1d76a0;
+			}
+			.btn-destaque {
+				display: inline-block;
+				background-color: #289b5d;
+				color: white !important;
+				padding: 0.8em 2em;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: bold;
+				margin-top: 1.5em;
+				transition: background-color 0.3s ease;
+			}
+			.btn-destaque:hover {
+				background-color: #1d76a0;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
+			<div class="hero">
+				<img src="/logo.png" alt="Logo IA no Bolso" class="logo-img" />
+				<h1>Bem-vindo ao IA no Bolso! 👋</h1>
+				<h2>Transformando Negócios com a IA</h2>
+			</div>
+
+			<div class="content-box">
+				<p>
+					Este é o seu espaço dedicado a simplificar a tecnologia, a automação e a inteligência artificial para microempreendedores e pequenos negócios.
+				</p>
+				<p>
+					Nossa missão é mostrar que você não precisa ser um expert em tecnologia nem investir fortunas para ter um negócio mais lucrativo, eficiente e ter mais tempo livre.
+				</p>
+				<p>Aqui você vai encontrar:</p>
+				<ul>
+					<li><strong>Guias Práticos:</strong> Tutoriais passo a passo para aplicar hoje mesmo no seu negócio.</li>
+					<li><strong>Ferramentas de IA:</strong> Análises das melhores opções para o seu bolso (gratuitas e pagas).</li>
+					<li><strong>Automação:</strong> Como trabalhar de forma mais inteligente, eliminando tarefas repetitivas.</li>
+				</ul>
+				
+				<div style="text-align: center;">
+					<a href="/blog" class="btn-destaque">Ler os Artigos Mais Recentes</a>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>
