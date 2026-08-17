@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 		'ferramentas': 'Ferramentas de IA'
 	};
 
-	return Object.entries(categoryMapping).map(([slug, name]) => {
+	return Object.entries(categoryMapping).map(([categorySlug, name]) => {
 		const filteredPosts = allPosts
 			.filter((post) => {
 				const categoriaDoPost = post.data.category || 'Automação e Produtividade';
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 			
 		return {
-			params: { category: slug },
+			params: { category: categorySlug },
 			props: { categoryName: name, posts: filteredPosts },
 		};
 	});
@@ -71,7 +71,8 @@ const { categoryName, posts } = Astro.props;
 				<ul>
 					{posts.map((post) => (
 						<li>
-							<a href={`/blog/${post.slug}/`}>
+							{/* Correção do motor do Astro usando post.id */}
+							<a href={`/blog/${post.slug || post.id}/`}>
 								<img width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 							</a>
