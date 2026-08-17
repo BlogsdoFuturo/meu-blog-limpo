@@ -41,7 +41,7 @@ const { categoryName, posts } = Astro.props;
 		<BaseHead title={`Categoria: ${categoryName} | ${SITE_TITLE}`} description={`Artigos sobre ${categoryName}`} />
 		<style>
 			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
-			h1 { color: #1d76a0; margin-bottom: 1.5em; text-align: center; }
+			h1 { color: #1d76a0; margin-bottom: 1.5em; text-align: center; line-height: 1.2; }
 			ul { display: flex; flex-wrap: wrap; gap: 2rem; list-style-type: none; margin: 0; padding: 0; }
 			ul li { width: calc(50% - 1rem); }
 			ul li img { margin-bottom: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: block; transition: 0.2s ease; }
@@ -52,8 +52,12 @@ const { categoryName, posts } = Astro.props;
 			.no-posts { text-align: center; color: #666; margin-top: 3em; }
 			.btn-voltar { display: inline-block; margin-top: 1.5em; color: #289b5d; font-weight: bold; text-decoration: none; }
 			.btn-voltar:hover { color: #1d76a0; }
+			
+			/* Ajustes exclusivos para Celular */
 			@media (max-width: 720px) {
 				ul li { width: 100%; margin-bottom: 2em; }
+				/* Esta linha reduz a fonte do título apenas no celular para evitar quebra de palavras */
+				h1 { font-size: 1.8em; margin-bottom: 1em; } 
 			}
 		</style>
 	</head>
