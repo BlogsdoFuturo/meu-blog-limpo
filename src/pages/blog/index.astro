@@ -8,12 +8,24 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// Função para converter o nome da categoria no link correto da URL
+const getCategorySlug = (category: string) => {
+	const lower = (category || '').toLowerCase();
+	if (lower.includes('automação')) return 'automacao';
+	if (lower.includes('inteligência')) return 'inteligencia-artificial';
+	if (lower.includes('marketing')) return 'marketing';
+	if (lower.includes('vendas')) return 'vendas';
+	if (lower.includes('atendimento') || lower.includes('whatsapp')) return 'whatsapp';
+	if (lower.includes('ferramentas')) return 'ferramentas';
+	return 'geral';
+};
 ---
 
 <!doctype html>
-<html lang="pt-PT">
+<html lang="pt-BR">
 	<head>
-		<BaseHead title={`Blogue | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;
@@ -40,6 +52,7 @@ const posts = (await getCollection('blog')).sort(
 				margin-bottom: 1rem;
 				border-radius: 12px;
 				box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+				display: block;
 			}
 			ul li a {
 				display: block;
@@ -57,19 +70,24 @@ const posts = (await getCollection('blog')).sort(
 			}
 			ul li a:hover h4,
 			ul li a:hover .date {
-				color: #1d76a0; /* Azul da sua marca no Hover */
+				color: #1d76a0;
 			}
 			
-			/* Etiqueta de Categoria */
+			/* Etiqueta de Categoria Ajustada */
 			.categoria-badge {
 				display: inline-block;
-				background-color: #289b5d; /* Verde da sua marca */
-				color: white;
-				padding: 0.2em 0.8em;
+				background-color: #289b5d;
+				color: white !important;
+				padding: 0.3em 1em;
 				border-radius: 20px;
 				font-size: 0.85em;
 				font-weight: bold;
 				margin-bottom: 0.8em;
+				text-transform: uppercase;
+			}
+			.categoria-link {
+				display: inline-block;
+				margin-bottom: 0.5rem;
 			}
 
 			@media (max-width: 720px) {
@@ -86,22 +104,31 @@ const posts = (await getCollection('blog')).sort(
 			<section>
 				<ul>
 					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-									<span class="categoria-badge">{post.data.category}</span>
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										{post.data.pubDate.toLocaleDateString('pt-PT', {
-											year: 'numeric',
-											month: 'long',
-											day: 'numeric',
-										})}
-									</p>
-								</a>
-							</li>
-						))
+						posts.map((post) => {
+							const categoriaNome = post.data.category || 'Automação e Produtividade';
+							const categoriaSlug = getCategorySlug(categoriaNome);
+							
+							return (
+								<li>
+									<a href={`/blog/${post.slug}/`}>
+										<img width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+									</a>
+									<a href={`/blog/${categoriaSlug}/`} class="categoria-link">
+										<span class="categoria-badge">{categoriaNome}</span>
+									</a>
+									<a href={`/blog/${post.slug}/`}>
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											{post.data.pubDate.toLocaleDateString('pt-BR', {
+												year: 'numeric',
+												month: 'long',
+												day: 'numeric',
+											})}
+										</p>
+									</a>
+								</li>
+							);
+						})
 					}
 				</ul>
 			</section>
