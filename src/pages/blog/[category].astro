@@ -8,7 +8,6 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
 	const allPosts = await getCollection('blog');
 	
-	// Mapeamento das categorias para as URLs sugeridas por você
 	const categoryMapping: Record<string, string> = {
 		'inteligencia-artificial': 'Inteligência Artificial para Negócios',
 		'marketing': 'Marketing e Clientes',
@@ -20,7 +19,11 @@ export async function getStaticPaths() {
 
 	return Object.entries(categoryMapping).map(([slug, name]) => {
 		const filteredPosts = allPosts
-			.filter((post) => post.data.category === name)
+			.filter((post) => {
+				// Blindagem: garante que ele leia a categoria correta mesmo se houver falha de cache
+				const categoriaDoPost = post.data.category || 'Automação e Produtividade';
+				return categoriaDoPost === name;
+			})
 			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 			
 		return {
@@ -36,18 +39,23 @@ const { categoryName, posts } = Astro.props;
 <!doctype html>
 <html lang="pt-BR">
 	<head>
-		<BaseHead title={`${categoryName} | ${SITE_TITLE}`} description={`Artigos sobre ${categoryName}`} />
+		<BaseHead title={`Categoria: ${categoryName} | ${SITE_TITLE}`} description={`Artigos sobre ${categoryName}`} />
 		<style>
 			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
 			h1 { color: #1d76a0; margin-bottom: 1.5em; text-align: center; }
 			ul { display: flex; flex-wrap: wrap; gap: 2rem; list-style-type: none; margin: 0; padding: 0; }
 			ul li { width: calc(50% - 1rem); }
-			ul li img { margin-bottom: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-			.title { margin: 0; color: #1e1e1e; font-size: 1.5em; text-decoration: none; }
+			ul li img { margin-bottom: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: block; transition: 0.2s ease; }
 			ul li a { text-decoration: none; display: block; }
+			.title { margin: 0; color: rgb(var(--black)); font-size: 1.5em; margin-top: 0.5em; transition: 0.2s ease; line-height: 1.2; }
 			ul li a:hover .title { color: #1d76a0; }
+			ul li a:hover img { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
 			.no-posts { text-align: center; color: #666; margin-top: 3em; }
 			.btn-voltar { display: inline-block; margin-top: 1.5em; color: #289b5d; font-weight: bold; text-decoration: none; }
+			.btn-voltar:hover { color: #1d76a0; }
+			@media (max-width: 720px) {
+				ul li { width: 100%; margin-bottom: 2em; }
+			}
 		</style>
 	</head>
 	<body>
