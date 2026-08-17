@@ -1,0 +1,48 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Termos de Uso | ${SITE_TITLE}`} description="Termos de Uso do site." />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
+			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
+			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); }
+			h2 { margin-top: 1.5em; color: rgb(var(--black)); }
+			p, ul { line-height: 1.6; margin-bottom: 1em; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="prose">
+				<h1>Termos de Uso</h1>
+				<p><em>Última atualização: 11 de Agosto de 2026</em></p>
+
+				<h2>1. Termos</h2>
+				<p>Ao acessar ao site, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum desses termos, está proibido de usar ou acessar este site.</p>
+
+				<h2>2. Uso de Licença</h2>
+				<p>É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título.</p>
+
+				<h2>3. Isenção de Responsabilidade</h2>
+				<p>Os materiais no site são fornecidos 'como estão'. Não oferecemos garantias, expressas ou implícitas, e, por este meio, isentamo-nos e negamos todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.</p>
+
+				<h2>4. Limitações</h2>
+				<p>Em nenhum caso o nosso site ou seus fornecedores serão responsáveis por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais no site.</p>
+
+				<h2>5. Modificações</h2>
+				<p>Podemos revisar estes termos de serviço do site a qualquer momento, sem aviso prévio. Ao usar este site, você concorda em ficar vinculado à versão atual desses termos de serviço.</p>
+
+				<h2>6. Lei Aplicável</h2>
+				<p>Estes termos e condições são regidos e interpretados de acordo com as leis do Brasil e você se submete irrevogavelmente à jurisdição exclusiva dos tribunais competentes.</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

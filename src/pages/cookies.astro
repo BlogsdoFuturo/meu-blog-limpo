@@ -1,0 +1,50 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Política de Cookies | ${SITE_TITLE}`} description="Política de Cookies do site." />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
+			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
+			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); }
+			h2 { margin-top: 1.5em; color: rgb(var(--black)); }
+			p, ul { line-height: 1.6; margin-bottom: 1em; }
+			ul { padding-left: 1.5em; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="prose">
+				<h1>Política de Cookies</h1>
+				<p><em>Última atualização: 11 de Agosto de 2026</em></p>
+
+				<h2>1. O que são cookies?</h2>
+				<p>Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies.</p>
+
+				<h2>2. Como usamos os cookies?</h2>
+				<p>Utilizamos cookies por vários motivos, detalhados abaixo. Infelizmente, na maioria dos casos, não existem opções padrão do setor para desativar os cookies sem desativar completamente a funcionalidade e os recursos que eles adicionam a este site. É recomendável que você deixe todos os cookies ativados se não tiver certeza se precisa deles ou não.</p>
+
+				<h2>3. Desativar cookies</h2>
+				<p>Você pode impedir a configuração de cookies ajustando as configurações do seu navegador (consulte a Ajuda do navegador para saber como fazer isso). Esteja ciente de que a desativação de cookies afetará a funcionalidade deste e de muitos outros sites que você visita.</p>
+
+				<h2>4. Cookies que definimos</h2>
+				<ul>
+					<li><strong>Cookies de preferências do site:</strong> Para proporcionar uma ótima experiência, fornecemos a funcionalidade para definir suas preferências de como o site é executado.</li>
+					<li><strong>Cookies de terceiros:</strong> Em alguns casos especiais, também usamos cookies fornecidos por terceiros confiáveis, como o Google Analytics, para nos ajudar a entender como você usa o site e como podemos melhorar sua experiência.</li>
+				</ul>
+
+				<h2>5. Mais informações</h2>
+				<p>Esperamos que isso esteja claro e, como mencionado anteriormente, se houver algo que você não tem certeza se precisa ou não, geralmente é mais seguro deixar os cookies ativados, caso interaja com um dos recursos que você usa em nosso site.</p>
+				<p>Para mais informações ou dúvidas, entre em contato através do e-mail: <strong>blogsdofuturo@gmail.com</strong>.</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

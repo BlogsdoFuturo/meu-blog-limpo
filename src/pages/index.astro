@@ -1,14 +1,8 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
-import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
@@ -16,94 +10,79 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 960px;
+			body {
+				background-color: #fffcfd; /* Fundo oficial da sua marca */
 			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
+			.hero {
 				text-align: center;
+				padding: 2em 0;
 			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
+			.logo-img {
+				max-width: 320px;
+				height: auto;
+				margin: 0 auto 1.5em auto;
 				display: block;
 			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
+			.hero h1 {
+				color: #1d76a0; /* Azul do cérebro */
+				margin-bottom: 0.2em;
 			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
+			.hero h2 {
+				color: #289b5d; /* Verde do gráfico */
+				font-size: 1.4em;
+				font-weight: 400;
+				margin-bottom: 1.5em;
 			}
-			ul li a:hover .title,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+			.content-box {
+				background: #ffffff;
+				padding: 2.5em;
+				border-radius: 12px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+				border-top: 4px solid #1d76a0;
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+			.btn-destaque {
+				display: inline-block;
+				background-color: #289b5d;
+				color: white !important;
+				padding: 0.8em 2em;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: bold;
+				margin-top: 1.5em;
+				transition: background-color 0.3s ease;
 			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5rem;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
+			.btn-destaque:hover {
+				background-color: #1d76a0;
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<section>
+			<div class="hero">
+				<img src="/logo.png" alt="Logo IA no Bolso" class="logo-img" />
+				<h1>Bem-vindo ao IA no Bolso! 👋</h1>
+				<h2>Transformando Negócios com a IA</h2>
+			</div>
+
+			<div class="content-box">
+				<p>
+					Este é o seu espaço dedicado a simplificar a tecnologia, a automação e a inteligência artificial para microempreendedores e pequenos negócios.
+				</p>
+				<p>
+					Nossa missão é mostrar que você não precisa ser um expert em tecnologia nem investir fortunas para ter um negócio mais lucrativo, eficiente e ter mais tempo livre.
+				</p>
+				<p>Aqui você vai encontrar:</p>
 				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.slug}/`}>
-									{post.data.heroImage && (
-										<img width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
+					<li><strong>Guias Práticos:</strong> Tutoriais passo a passo para aplicar hoje mesmo no seu negócio.</li>
+					<li><strong>Ferramentas de IA:</strong> Análises das melhores opções para o seu bolso (gratuitas e pagas).</li>
+					<li><strong>Automação:</strong> Como trabalhar de forma mais inteligente, eliminando tarefas repetitivas.</li>
 				</ul>
-			</section>
+				
+				<div style="text-align: center;">
+					<a href="/blog" class="btn-destaque">Ler os Artigos Mais Recentes</a>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>

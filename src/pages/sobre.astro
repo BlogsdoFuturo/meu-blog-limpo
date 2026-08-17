@@ -1,0 +1,48 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`Sobre Nós | ${SITE_TITLE}`} description="Conheça mais sobre o nosso blog e nossa missão." />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
+			.prose { max-width: 720px; margin: auto; color: rgb(var(--gray-dark)); }
+			h1 { margin-bottom: 0.5em; color: rgb(var(--black)); text-align: center; }
+			h2 { margin-top: 1.5em; color: rgb(var(--black)); }
+			p, ul { line-height: 1.6; margin-bottom: 1em; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="prose">
+				<h1>Sobre Nós</h1>
+				
+				<p>Bem-vindo ao <strong>{SITE_TITLE}</strong>! Nossa missão é democratizar o conhecimento sobre tecnologia, automação e inteligência artificial para empreendedores e pequenos negócios.</p>
+
+				<h2>Nossa História</h2>
+				<p>Nascemos da percepção de que a tecnologia não deve ser um privilégio apenas de grandes corporações. Acreditamos que, com as ferramentas certas e o conhecimento adequado, qualquer pessoa pode otimizar seu tempo, aumentar seus lucros e transformar a maneira como trabalha.</p>
+
+				<h2>O Que Fazemos</h2>
+				<p>Nós testamos, validamos e traduzimos as ferramentas mais modernas do mercado em guias práticos e acessíveis. Aqui, você não encontrará jargões técnicos complicados, mas sim passos claros e aplicáveis para o seu dia a dia.</p>
+				<ul>
+					<li>Análises honestas de softwares e aplicativos.</li>
+					<li>Tutoriais práticos de automação.</li>
+					<li>Dicas de produtividade usando Inteligência Artificial.</li>
+					<li>Estratégias de crescimento para micro e pequenos negócios.</li>
+				</ul>
+
+				<h2>Nosso Compromisso</h2>
+				<p>Temos o compromisso com a transparência e a utilidade. Cada artigo, dica e recomendação é feito pensando no seu sucesso e no respeito ao seu tempo.</p>
+
+				<p>Fique à vontade para explorar nossos conteúdos e, caso tenha alguma dúvida ou sugestão, acesse nossa página de contato!</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
