@@ -1,7 +1,7 @@
 ---
 title: 'Trabalhe Menos, Lucre Mais: Automação Inteligente para Microempreendedores'
 description: 'Descubra como a automação inteligente pode revolucionar seu MEI. Ferramentas práticas de IA para trabalhar menos, aumentar lucros e ter mais tempo livre. Guia completo 2025.'
-pubDate: 'Aug 07 2026'
+pubDate: '2026-08-07'
 heroImage: '/capa-trabalhe-menos.jpg'
 category: 'Automação e Produtividade'
 ---
