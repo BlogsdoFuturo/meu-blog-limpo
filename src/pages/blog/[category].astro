@@ -71,8 +71,8 @@ const { categoryName, posts } = Astro.props;
 				<ul>
 					{posts.map((post) => (
 						<li>
-							{/* Forçamos a URL a começar do topo do site adicionando / no início */}
-							<a href={`/blog/${post.slug}/`}>
+							{/* Aqui está a correção definitiva da URL absoluta */}
+							<a href={`/blog/${post.slug}`}>
 								<img width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
 								<h4 class="title">{post.data.title}</h4>
 							</a>
