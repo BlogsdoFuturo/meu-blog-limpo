@@ -1,0 +1,78 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITE_TITLE } from '../../consts';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection('blog');
+	
+	// Mapeamento das categorias para as URLs sugeridas por você
+	const categoryMapping: Record<string, string> = {
+		'inteligencia-artificial': 'Inteligência Artificial para Negócios',
+		'marketing': 'Marketing e Clientes',
+		'vendas': 'Vendas',
+		'whatsapp': 'Atendimento e WhatsApp',
+		'automacao': 'Automação e Produtividade',
+		'ferramentas': 'Ferramentas de IA'
+	};
+
+	return Object.entries(categoryMapping).map(([slug, name]) => {
+		const filteredPosts = allPosts
+			.filter((post) => post.data.category === name)
+			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+			
+		return {
+			params: { category: slug },
+			props: { categoryName: name, posts: filteredPosts },
+		};
+	});
+}
+
+const { categoryName, posts } = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title={`${categoryName} | ${SITE_TITLE}`} description={`Artigos sobre ${categoryName}`} />
+		<style>
+			main { width: 960px; max-width: calc(100% - 2em); margin: auto; padding: 3em 1em; }
+			h1 { color: #1d76a0; margin-bottom: 1.5em; text-align: center; }
+			ul { display: flex; flex-wrap: wrap; gap: 2rem; list-style-type: none; margin: 0; padding: 0; }
+			ul li { width: calc(50% - 1rem); }
+			ul li img { margin-bottom: 1rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+			.title { margin: 0; color: #1e1e1e; font-size: 1.5em; text-decoration: none; }
+			ul li a { text-decoration: none; display: block; }
+			ul li a:hover .title { color: #1d76a0; }
+			.no-posts { text-align: center; color: #666; margin-top: 3em; }
+			.btn-voltar { display: inline-block; margin-top: 1.5em; color: #289b5d; font-weight: bold; text-decoration: none; }
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Categoria: {categoryName}</h1>
+			
+			{posts.length === 0 ? (
+				<div class="no-posts">
+					<p>Ainda não há artigos publicados nesta categoria.</p>
+					<a href="/blog" class="btn-voltar">← Voltar para o Blog</a>
+				</div>
+			) : (
+				<ul>
+					{posts.map((post) => (
+						<li>
+							<a href={`/blog/${post.slug}/`}>
+								<img width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
+								<h4 class="title">{post.data.title}</h4>
+							</a>
+						</li>
+					))}
+				</ul>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>
