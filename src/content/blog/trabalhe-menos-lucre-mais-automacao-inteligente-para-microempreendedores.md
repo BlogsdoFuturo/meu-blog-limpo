@@ -209,7 +209,7 @@ Pacote completo:
 **Investimento total:** R$ 300-400/mês
 **Economia de tempo:** ~20h/semana
 
-## Casos Reais: MEIs Que Transformaram Seus Negócios Com Automação
+## Casos Reais: MEIs Que Mudaram Seus Negócios Com Automação
 
 <br>
 
