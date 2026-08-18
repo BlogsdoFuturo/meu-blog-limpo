@@ -21,28 +21,30 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.title { margin-bottom: 1em; padding: 1em 0; text-align: center; line-height: 1; }
 			.date { margin-bottom: 0.5em; color: rgb(var(--gray)); }
 			.last-updated-on { font-style: italic; }
-
-			/* --- HIERARQUIA DE TIPOGRAFIA (DESKTOP) --- */
+		</style>
+		
+		<style is:global>
+			/* HIERARQUIA DE TIPOGRAFIA (DESKTOP) */
 			.prose .title h1 { font-size: 2.6em; margin: 0 0 0.5em 0; color: #1e1e1e; font-weight: 800; line-height: 1.2; }
 			.prose h2 { font-size: 1.8em; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; font-weight: 700; }
 			.prose h3 { font-size: 1.4em; margin-top: 1.2em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; font-weight: 700; }
 			.prose h4 { font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; font-weight: 700; }
 			.prose p, .prose ul, .prose ol { font-size: 1.1em; line-height: 1.7; margin-bottom: 1.2em; }
 
-			/* Ajustes exclusivos e proporcionais para Celular */
+			/* HIERARQUIA RIGOROSA PARA CELULAR */
 			@media (max-width: 720px) {
-				/* O H1 fica com 1.7em: Grande para ser manchete, mas cabendo 'Microempreendedores' sem quebrar */
-				.prose .title h1 { font-size: 1.7em !important; line-height: 1.2 !important; }
+				/* H1 cravado: Encaixa a palavra Microempreendedores e domina a tela */
+				.prose .title h1 { font-size: 1.45em !important; line-height: 1.3 !important; }
 				
-				/* O H2 fica claramente menor que o H1 */
-				.prose h2 { font-size: 1.4em !important; line-height: 1.3 !important; }
+				/* H2 submisso ao H1 (Doma os títulos dentro do texto) */
+				.prose h2 { font-size: 1.25em !important; line-height: 1.3 !important; }
 				
-				/* O H3 fica menor que o H2 */
-				.prose h3 { font-size: 1.2em !important; line-height: 1.3 !important; }
-				.prose h4, .prose h5, .prose h6 { font-size: 1.1em !important; line-height: 1.3 !important; }
+				/* H3 submisso ao H2 */
+				.prose h3 { font-size: 1.1em !important; line-height: 1.3 !important; }
+				.prose h4, .prose h5, .prose h6 { font-size: 1.05em !important; line-height: 1.3 !important; }
 				
-				/* Textos de leitura confortáveis */
-				.prose p, .prose ul, .prose ol { font-size: 1.05em !important; line-height: 1.6 !important; }
+				/* Textos padrão */
+				.prose p, .prose ul, .prose ol { font-size: 1em !important; line-height: 1.6 !important; }
 
 				/* Blindagem absoluta contra quebra de palavras */
 				.prose, .prose * {
