@@ -14,91 +14,41 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
+			main { width: calc(100% - 2em); max-width: 100%; margin: 0; }
+			.hero-image { width: 100%; }
+			.hero-image img { display: block; margin: 0 auto; border-radius: 12px; box-shadow: var(--box-shadow); }
+			.prose { width: 720px; max-width: calc(100% - 2em); margin: auto; padding: 1em; color: rgb(var(--gray-dark)); }
+			.title { margin-bottom: 1em; padding: 1em 0; text-align: center; line-height: 1; }
+			.title h1 { margin: 0 0 0.5em 0; }
+			.date { margin-bottom: 0.5em; color: rgb(var(--gray)); }
+			.last-updated-on { font-style: italic; }
 
 			/* --- ESTILOS DE TIPOGRAFIA (DESKTOP E MOBILE) --- */
-			
-			/* Tamanhos harmoniosos para Desktop */
 			.prose h2 { font-size: 2em; margin-top: 1.5em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; }
 			.prose h3 { font-size: 1.5em; margin-top: 1.2em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; }
 			.prose h4 { font-size: 1.2em; margin-top: 1em; margin-bottom: 0.5em; line-height: 1.3; color: #1e1e1e; }
-			.prose p { font-size: 1.05em; line-height: 1.7; margin-bottom: 1.2em; }
-			.prose ul, .prose ol { font-size: 1.05em; line-height: 1.7; margin-bottom: 1.2em; }
+			.prose p, .prose ul, .prose ol { font-size: 1.05em; line-height: 1.7; margin-bottom: 1.2em; }
 
 			/* Ajustes exclusivos e precisos para Celular */
 			@media (max-width: 720px) {
-				/* Título principal do artigo (H1) */
-				.title h1 { 
-					font-size: 1.8em !important; 
-					line-height: 1.2 !important;
-				}
-				
-				/* Subtítulos dentro do texto (H2, H3, H4) */
-				.prose h2 { 
-					font-size: 1.4em !important; 
-					line-height: 1.3 !important;
-				}
-				.prose h3 { 
-					font-size: 1.2em !important; 
-					line-height: 1.3 !important;
-				}
-				.prose h4, .prose h5, .prose h6 { 
-					font-size: 1.1em !important; 
-					line-height: 1.3 !important;
-				}
-				
-				/* Textos normais e listas no celular */
-				.prose p, .prose ul, .prose ol {
-					font-size: 1em !important;
-					line-height: 1.6 !important;
-				}
+				.title h1 { font-size: 1.7em !important; line-height: 1.2 !important; }
+				.prose h2 { font-size: 1.35em !important; line-height: 1.3 !important; }
+				.prose h3 { font-size: 1.2em !important; line-height: 1.3 !important; }
+				.prose h4, .prose h5, .prose h6 { font-size: 1.1em !important; line-height: 1.3 !important; }
+				.prose p, .prose ul, .prose ol { font-size: 1em !important; line-height: 1.6 !important; }
 
-				/* Impede cortes agressivos de palavras no meio da tela */
-				h1, h2, h3, h4, h5, h6, .prose h2, .prose h3 {
+				/* REGRA DE FERRO: PROÍBE CORTE DE PALAVRAS E HÍFEN NOS TÍTULOS */
+				h1, h2, h3, h4, h5, h6, .prose h1, .prose h2, .prose h3, .prose h4 {
 					word-break: normal !important;
-					overflow-wrap: break-word !important;
-					hyphens: auto;
+					word-wrap: normal !important;
+					overflow-wrap: normal !important;
+					-webkit-hyphens: none !important;
+					-ms-hyphens: none !important;
+					hyphens: none !important;
 				}
 			}
 		</style>
 	</head>
-
 	<body>
 		<Header />
 		<main>
@@ -109,26 +59,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="prose">
 					<div class="title">
 						<div class="date">
-							{
-								pubDate && new Date(pubDate).toLocaleDateString('pt-BR', {
-									year: 'numeric',
-									month: 'long',
-									day: 'numeric',
-								})
-							}
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Atualizado em {
-											new Date(updatedDate).toLocaleDateString('pt-BR', {
-												year: 'numeric',
-												month: 'long',
-												day: 'numeric',
-											})
-										}
-									</div>
-								)
-							}
+							{pubDate && new Date(pubDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}
+							{updatedDate && (<div class="last-updated-on">Atualizado em {new Date(updatedDate).toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })}</div>)}
 						</div>
 						<h1>{title}</h1>
 						<hr />
