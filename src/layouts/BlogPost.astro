@@ -31,17 +31,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 			/* Ajustes exclusivos e precisos para Celular */
 			@media (max-width: 720px) {
-				.title h1 { font-size: 1.7em !important; line-height: 1.2 !important; }
-				.prose h2 { font-size: 1.35em !important; line-height: 1.3 !important; }
-				.prose h3 { font-size: 1.2em !important; line-height: 1.3 !important; }
+				.title h1 { font-size: 1.6em !important; line-height: 1.2 !important; }
+				.prose h2 { font-size: 1.3em !important; line-height: 1.3 !important; }
+				.prose h3 { font-size: 1.15em !important; line-height: 1.3 !important; }
 				.prose h4, .prose h5, .prose h6 { font-size: 1.1em !important; line-height: 1.3 !important; }
 				.prose p, .prose ul, .prose ol { font-size: 1em !important; line-height: 1.6 !important; }
 
-				/* REGRA DE FERRO: PROÍBE CORTE DE PALAVRAS E HÍFEN NOS TÍTULOS */
-				h1, h2, h3, h4, h5, h6, .prose h1, .prose h2, .prose h3, .prose h4 {
+				/* REGRA DE FERRO ABSOLUTA: Aplica a TODO o conteúdo do artigo (títulos, negritos, parágrafos) */
+				.prose, .prose * {
 					word-break: normal !important;
-					word-wrap: normal !important;
-					overflow-wrap: normal !important;
 					-webkit-hyphens: none !important;
 					-ms-hyphens: none !important;
 					hyphens: none !important;
